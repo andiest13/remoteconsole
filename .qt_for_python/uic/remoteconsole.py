@@ -16,7 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QMainWindow, QMenuBar,
-    QPushButton, QScrollArea, QSizePolicy, QStatusBar,
+    QPushButton, QSizePolicy, QStatusBar, QTextEdit,
     QWidget)
 
 class Ui_MainWindow(object):
@@ -26,17 +26,9 @@ class Ui_MainWindow(object):
         MainWindow.resize(400, 600)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.scrollArea = QScrollArea(self.centralwidget)
-        self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setGeometry(QRect(20, 100, 361, 101))
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 359, 99))
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(20, 230, 100, 32))
+        self.btn_open = QPushButton(self.centralwidget)
+        self.btn_open.setObjectName(u"btn_open")
+        self.btn_open.setGeometry(QRect(20, 300, 51, 31))
         self.btn_study = QPushButton(self.centralwidget)
         self.btn_study.setObjectName(u"btn_study")
         self.btn_study.setGeometry(QRect(280, 500, 100, 32))
@@ -46,6 +38,16 @@ class Ui_MainWindow(object):
         self.btn_switch = QPushButton(self.centralwidget)
         self.btn_switch.setObjectName(u"btn_switch")
         self.btn_switch.setGeometry(QRect(20, 40, 100, 32))
+        self.txt_result = QTextEdit(self.centralwidget)
+        self.txt_result.setObjectName(u"txt_result")
+        self.txt_result.setGeometry(QRect(20, 70, 361, 211))
+        self.txt_result.setReadOnly(True)
+        self.btn_test = QPushButton(self.centralwidget)
+        self.btn_test.setObjectName(u"btn_test")
+        self.btn_test.setGeometry(QRect(280, 360, 100, 32))
+        self.txt_text = QTextEdit(self.centralwidget)
+        self.txt_text.setObjectName(u"txt_text")
+        self.txt_text.setGeometry(QRect(20, 360, 231, 31))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -62,8 +64,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u683c\u529b\u7a7a\u8c03\u9065\u63a7", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u5173", None))
+        self.btn_open.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u5173", None))
         self.btn_study.setText(QCoreApplication.translate("MainWindow", u"\u5b66\u4e60", None))
         self.btn_switch.setText(QCoreApplication.translate("MainWindow", u"\u6253\u5f00", None))
+        self.btn_test.setText(QCoreApplication.translate("MainWindow", u"\u6d4b\u8bd5", None))
     # retranslateUi
 
