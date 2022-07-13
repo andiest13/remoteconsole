@@ -1,9 +1,15 @@
+altgraph==0.17.2
+Babel==2.10.3
 flake8==4.0.1
+macholib==1.16
 mccabe==0.6.1
 pycodestyle==2.8.0
 pyflakes==2.4.0
+pyinstaller==5.2
+pyinstaller-hooks-contrib==2022.8
 pyserial==3.5
 PySide6==6.3.1
 PySide6-Addons==6.3.1
 PySide6-Essentials==6.3.1
+pytz==2022.1
 shiboken6==6.3.1
