@@ -4,18 +4,26 @@
 # email:andiest13@gmail.com
 
 import sys
-from PySide6 import QtWidgets
+from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtCore import QFile
 from PySide6.QtUiTools import QUiLoader
-
+from remoteconsole import Ui_MainWindow
 from conn import com_ports
 from conn.com import DcSerial
 
 
-class RcWindow(object):
+class RcWindow(QMainWindow):
     def __init__(self):
-        loader = QUiLoader()
-        self.dialog = loader.load("remoteconsole.ui", None)
-        self.dialog.show()
+        # loader = QUiLoader()
+        # file = QFile("remoteconsole.ui")
+        # file.open(QFile.ReadOnly)
+        # self.dialog = loader.load(file, None)
+        # self.dialog.show()
+
+        super(RcWindow, self).__init__()
+        self.dialog = Ui_MainWindow()
+        self.dialog.setupUi(self)
+        self.show()
         for port in com_ports.serial_ports():
             self.dialog.ports_list.addItem(port)
         self.com = DcSerial()
@@ -27,8 +35,8 @@ class RcWindow(object):
         self.dialog.btn_study.clicked.connect(lambda: self.btn_study())
         self.dialog.btn_switch.clicked.connect(lambda: self.btn_switch_click())
         self.dialog.btn_open.clicked.connect(lambda: self.open_dev())
-        self.dialog.btn_test.clicked.connect(lambda: self.test())
-        # self.dialog.txt_result.insertPlainText
+        self.dialog.btn_debug.clicked.connect(lambda: self.debug_test())
+        self.dialog.btn_close.clicked.connect(lambda: self.close_dev())
 
     # 点击连接com口
     def btn_switch_click(self):
@@ -64,7 +72,11 @@ class RcWindow(object):
         string = 'FA FD 02 01 DF'
         self.send_data(string)
 
-    def test(self):
+    def close_dev(self):
+        string = 'FA FD 02 09 DF'
+        self.send_data(string)
+
+    def debug_test(self):
         string = self.dialog.txt_text.toPlainText()
         # print(string)
         # string = 'FA FD 06 00 DF'
@@ -72,6 +84,6 @@ class RcWindow(object):
 
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    app = QApplication(sys.argv)
     window = RcWindow()
     app.exec()

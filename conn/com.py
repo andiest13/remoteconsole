@@ -3,10 +3,9 @@
 # author: ziu andiest
 # email:andiest13@gmail.com
 
-import time
+from time import sleep
 import serial
 import utils
-import serial.tools.list_ports
 from enum import Enum
 
 
@@ -41,7 +40,7 @@ class DcSerial:
         data = self.parseSendData(data=string, encoding="ASCII", isHexStr=True)
         self.com.write(data)
         # 处理返回
-        time.sleep(0.5)
+        sleep(0.5)
         length = max(1, self.com.in_waiting)
         data = self.com.read(length)
         # print(data)

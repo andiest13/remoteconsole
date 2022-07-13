@@ -42,12 +42,15 @@ class Ui_MainWindow(object):
         self.txt_result.setObjectName(u"txt_result")
         self.txt_result.setGeometry(QRect(20, 70, 361, 211))
         self.txt_result.setReadOnly(True)
-        self.btn_test = QPushButton(self.centralwidget)
-        self.btn_test.setObjectName(u"btn_test")
-        self.btn_test.setGeometry(QRect(280, 360, 100, 32))
+        self.btn_debug = QPushButton(self.centralwidget)
+        self.btn_debug.setObjectName(u"btn_debug")
+        self.btn_debug.setGeometry(QRect(260, 370, 100, 40))
         self.txt_text = QTextEdit(self.centralwidget)
         self.txt_text.setObjectName(u"txt_text")
-        self.txt_text.setGeometry(QRect(20, 360, 231, 31))
+        self.txt_text.setGeometry(QRect(20, 380, 231, 31))
+        self.btn_close = QPushButton(self.centralwidget)
+        self.btn_close.setObjectName(u"btn_close")
+        self.btn_close.setGeometry(QRect(170, 500, 100, 32))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -64,9 +67,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u683c\u529b\u7a7a\u8c03\u9065\u63a7", None))
-        self.btn_open.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u5173", None))
+        self.btn_open.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u673a", None))
         self.btn_study.setText(QCoreApplication.translate("MainWindow", u"\u5b66\u4e60", None))
         self.btn_switch.setText(QCoreApplication.translate("MainWindow", u"\u6253\u5f00", None))
-        self.btn_test.setText(QCoreApplication.translate("MainWindow", u"\u6d4b\u8bd5", None))
+        self.btn_debug.setText(QCoreApplication.translate("MainWindow", u"\u8c03\u8bd5", None))
+        self.btn_close.setText(QCoreApplication.translate("MainWindow", u"\u5173\u673a", None))
     # retranslateUi
 
